@@ -1,35 +1,24 @@
-print("="*5, "PROGRAM KALKULATOR SEDERHANA" ,"="*5)
-print("1. Penambahan")
-print("2. Pengurangan")
-print("3. Perkalian")
-print("4. Pembagian")
-print()
-print("Tekan tombol Q bila ingin keluar aplikasi ini")
+print("="*10, "PROGRAM KALKULATOR SEDERHANA" ,"="*10)
+print("Masukkan input seperti 4 + 3 atau 1 * 2.")
+print("Pastikan untuk menggunakan spasi pada setiap perhitungan.")
 print()
 
-def tambah(a, b):
-    return a + b
-def kurang(a, b):
-    return a - b
-def kali(a, b):
-    return a * b
-def bagi(a, b):
-    return a / b
-
-while(True):
-    pilih = input("Silahkan pilih kalkulasi : ")
-    if pilih == "Q":
-        break
-    elif int(pilih) < 1 or int(pilih) > 4:
-        print("Maaf, anda salah pilih opsi kalkulasi silahkan pilih ulang")
-    else:
-        a = int(input("Masukkan angka pertama : "))
-        b = int(input("Masukkan angka kedua : "))
-        if int(pilih) == 1:
-            print("Hasil dari penambahannya adalah : ",tambah(a,b))
-        elif int(pilih) == 2:
-            print("Hasil dari pengurangannya adalah : ",kurang(a,b))
-        elif int(pilih) == 3:
-            print("Hasil dari perkaliannya adalah : ",kali(a,b))
+try:
+    while(True):
+        kal = input("Masukkan input : ")
+        if kal == "Q":
+            print("Anda sudah keluar dari aplikasi ini")
+            break       
+        lst = kal.split()
+        if lst[1] == "+":
+            print("Hasil : ",int(lst[0]) + int(lst[2]))
+        elif lst[1] == "-":
+            print("Hasil : ",int(lst[0]) - int(lst[2]))
+        elif lst[1] == "*":
+            print("Hasil : ",int(lst[0]) * int(lst[2]))
+        elif lst[1] == "/":
+            print("Hasil : ",int(lst[0]) / int(lst[2]))
         else:
-            print("Hasil dari pembagiannya adalah : ",bagi(a,b))
+            print("Salah operator")
+except:
+    print("Salah input, silahkan ulangi")
